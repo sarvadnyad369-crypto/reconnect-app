@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>reConnect V63 V59 Search Only</title>
+  <link rel="stylesheet" href="style.css?v=63-v59-search-only" />
+</head>
+<body class="auth-mode">
+  <div id="toast" class="toast"></div>
+
+  <main id="authScreen" class="auth-screen">
+    <section class="auth-card">
+      <div class="brand-mark">rC</div>
+      <h1>reConnect</h1>
+      <p>Social media, made human again.</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-auth-tab="login" onclick="showAuthForm('login')">Login</button>
+        <button class="auth-tab" data-auth-tab="register" onclick="showAuthForm('register')">Register</button>
+        <button class="auth-tab" data-auth-tab="forgot" onclick="showAuthForm('forgot')">Forgot?</button>
+      </div>
+
+      <div id="loginForm" class="auth-form active">
+        <input id="loginUsername" placeholder="Username" />
+        <input id="loginPassword" type="password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+        <button class="text-auth-link" onclick="showAuthForm('forgot')">Forgot password?</button>
+        <small>Use a strong password. Avoid 1234 / 123456.</small>
+      </div>
+
+      <div id="registerForm" class="auth-form">
+        <input id="registerDisplayName" placeholder="Display name" />
+        <input id="registerUsername" placeholder="Username" />
+        <input id="registerPassword" type="password" placeholder="Password" />
+        <input id="registerConfirmPassword" type="password" placeholder="Confirm password" />
+        <button onclick="register()">Create Account</button>
+      </div>
+
+      <div id="forgotForm" class="auth-form">
+        <input id="forgotUsername" placeholder="Username" />
+        <input id="forgotPassword" type="password" placeholder="New strong password" />
+        <input id="forgotConfirmPassword" type="password" placeholder="Confirm new password" />
+        <button onclick="forgotPassword()">Reset Password</button>
+        <button class="text-auth-link" onclick="showAuthForm('login')">Back to login</button>
+        <small>Demo reset for local development. Production needs email/OTP verification.</small>
+      </div>
+    </section>
+  </main>
+
+  <main id="appShell" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="mini-logo">rC</div>
+        <div class="rail-label">
+          <h2>reConnect</h2>
+          <span>Premium Social OS</span>
+        </div>
+      </div>
+
+      <div class="profile-mini profile-photo-trigger" onclick="openProfilePhotoModal()" title="Change profile picture">
+        <div id="sideAvatar" class="avatar">🔥</div>
+        <div class="rail-label">
+          <strong id="sideName">User</strong>
+          <p id="sideUsername">@user</p>
+          <small id="sideStats">0 followers</small>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-btn active" data-view="home" onclick="switchView('home')" title="Home"><span class="nav-icon">🏠</span><span class="nav-label">Home</span></button>
+        <button class="post-shortcut nav-post-shortcut-v49" onclick="switchView('home'); setTimeout(focusComposer, 150)" title="Create Post"><span class="nav-icon">＋</span><span class="nav-label">Create Post</span></button>
+        <button class="nav-btn" data-view="explore" onclick="switchView('explore')" title="Explore"><span class="nav-icon">🔥</span><span class="nav-label">Explore</span></button>
+        <button class="nav-btn" data-view="messages" onclick="switchView('messages')" title="Messages"><span class="nav-icon message-wrap">💬<b id="messageBadge" class="nav-count-badge hidden">0</b></span><span class="nav-label">Messages</span></button>
+        <button class="nav-btn" data-view="notifications" onclick="switchView('notifications')" title="Notifications"><span class="nav-icon bell-wrap">🔔<b id="notificationBadge" class="notification-badge hidden">0</b></span><span class="nav-label">Notifications</span></button>
+        <button class="nav-btn" data-view="profile" onclick="switchView('profile')" title="Profile"><span class="nav-icon">👤</span><span class="nav-label">Profile</span></button>
+        <button class="nav-btn" data-view="liked" onclick="switchView('liked')" title="Liked Posts"><span class="nav-icon">❤️</span><span class="nav-label">Liked Posts</span></button>
+        <button class="nav-btn" data-view="saved" onclick="switchView('saved')" title="Saved Posts"><span class="nav-icon">🔖</span><span class="nav-label">Saved Posts</span></button>
+        <button class="nav-btn" data-view="settings" onclick="switchView('settings')" title="Settings"><span class="nav-icon">⚙️</span><span class="nav-label">Settings</span></button>
+      </nav>
+    </aside>
+
+    <section id="mainContent" class="main"></section>
+
+    <aside id="rightPanel" class="right"></aside>
+  </main>
+
+  <script src="script.js?v=63-v59-search-only"></script>
+
+  <div id="callModalV42" class="call-modal-v42 hidden"></div>
+</body>
+</html>
