@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: reconnect
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true
